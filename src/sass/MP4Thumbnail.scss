@@ -1,0 +1,31 @@
+@import  '../../node_modules/sass-mutils/utils.scss';
+
+$config: (
+  mp4-thumbnail: (
+    filter: grayscale(100%) opacity(50%),
+    cursor: pointer
+  )
+);
+
+.mp4-thumbnail-base {
+  cursor: map-get-in($config,
+    mp4-thumbnail,
+    cursor);
+}
+
+.mp4-thumbnail {
+  @extend .mp4-thumbnail-base;
+  @include css3(filter, map-get-in($config,
+    mp4-thumbnail,
+    filter));
+  &:hover {
+    @include css3(filter,
+      none);
+  }
+}
+
+.mp4-thumbnail-checked {
+  @extend .mp4-thumbnail-base;
+  @include css3(filter,
+    none);
+}

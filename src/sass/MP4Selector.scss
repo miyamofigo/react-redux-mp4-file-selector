@@ -1,0 +1,36 @@
+@import  '../../node_modules/sass-mutils/utils.scss';
+
+$config: (
+  mp4-input: (
+    flex-config: (
+      display: flex,
+      justify-content: center,
+      align-items: center,
+      flex-direction: column
+    )
+  ),
+  mp4-selector: (
+    flex-config: (
+      display: flex,
+      flex-direction: row,
+      justify-content: center,
+      flex-wrap: wrap
+    )
+  )
+);
+
+.mp4-selector-display-invisible {
+  @extend .invisible-display;
+}
+
+.mp4-input {
+  @include css3-flex-with-config(map-get-in($config,
+    mp4-input,
+    flex-config));
+}
+
+.mp4-selector {
+  @include css3-flex-with-config(map-get-in($config,
+    mp4-selector,
+    flex-config)); 
+}
